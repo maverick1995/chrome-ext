@@ -1,0 +1,1 @@
+ 'sc = document.createElement(\'script\') ; test = \'gg\' ;  sc.type = \'text/javascript\' ; sc.innerHTML = test ; document.head.appendchild(sc) ; console.log(\'addes\') ; '

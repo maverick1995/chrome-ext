@@ -64,9 +64,24 @@ WebInspector.InspectorView.prototype = {
     {
         if (this._currentPanel === x)
             return;
-
-        if (this._currentPanel)
+        
+        if (this._currentPanel === 'Sencha' || this._currentPanel === 'OpenAjax' ){
+            hh = this._currentPanel ; 
+            if(hh==='Sencha')
+            gg= 'index' ; 
+            else
+            gg = 'pre' ; 
+            frame = document.getElementById(gg) ; 
+            frame.style.visibility = 'hidden' ; 
+            but = document.getElementById(this._currentPanel) ; 
+            but.className = 'toolbar-item toggleable elements' ; 
+       }
+       else{
+           if (this._currentPanel)
             this._currentPanel.detach();
+       }
+
+        
 
         this._currentPanel = x;
 
