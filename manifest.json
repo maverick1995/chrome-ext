@@ -4,14 +4,34 @@
   "version": "0.1",
   "permissions": [
     "tabs",
-    "debugger"
+     "http://*/" , 
+     "https://*/" , 
+    "debugger" , 
+    "contextMenus",
+    "activeTab"
   ],
   "background": {
     "scripts": ["background.js"]
   },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*" , "https://*/*"],
+      "js": ["custom/resources/hub/content-script.js"] , 
+      "run_at" : "document_end"
+    }
+  ],
+  "options_page" : "AppInspector/AppInspector/index.html"  , 
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "browser_action": {
     "default_icon": "inspector.png",
     "default_title": "Start Web Inspector"
   },
-  "manifest_version": 2
+  "manifest_version": 2,
+  "web_accessible_resources":
+    [
+      "*"
+    ]
 }
+
+
+
